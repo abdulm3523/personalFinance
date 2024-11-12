@@ -15,25 +15,26 @@ export default function MainContainer() {
     // e.preventDefault()
     console.log("clicked");
     if (
-      initalValue.category === "" &&
-      initalValue.amount === "" &&
-      initalValue.date === ""
+      initalValue.category !== "" &&
+      initalValue.amount !== "" &&
+      initalValue.date !== ""
     ) {
-      toast.warn("Fillup the data");
-    } else {
       if (initalValue.typeOfTransection === "income") {
         dispatchIncome({
           type: "Add_Income",
           payload: initalValue,
         });
+        toast.success("Transection added succesfully");
       } else if (initalValue.typeOfTransection === "expense") {
         dispatchExpense({
           type: "Add_Expense",
           payload: initalValue,
         });
+        toast.success("Transection added succesfully");
       }
-      toast.success("Transection added succesfully");
       resetForm();
+    } else {
+      toast.warn("Fillup the data");
     }
   };
 

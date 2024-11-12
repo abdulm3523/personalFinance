@@ -7,6 +7,7 @@ export default function AddEditTransection({
   onUdateTransection,
   onEditMode,
 }) {
+  // setup initial value
   const [initalValue, setValue] = useState(
     onUdateTransection || {
       id: crypto.randomUUID(),
@@ -16,6 +17,8 @@ export default function AddEditTransection({
       date: "",
     }
   );
+
+  // reset form
   const resetForm = () => {
     setValue({
       typeOfTransection: "income",
@@ -25,6 +28,7 @@ export default function AddEditTransection({
     });
   };
 
+  // tracking form data on hange
   const handelOnChange = (e) => {
     e.preventDefault();
     // const date = e.target.name === 'date'? formatDate(e.target.value) : ''
